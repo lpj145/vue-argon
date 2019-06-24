@@ -1,0 +1,175 @@
+@import './external.scss';
+@import './vue-select';
+@import './argon.scss';
+
+body, html {
+    height: 100vh;
+    background-color: #f4f6fb !important;
+    font-family: Quicksand,sans-serif !important;
+    line-height: 1.8rem;
+    letter-spacing: .5px;
+}
+
+.side-hide {
+    padding-left: 0 !important;
+}
+
+.side-unpinned {
+    padding-left: 220px;
+}
+
+.side-pinned {
+    padding-left: 70px;
+}
+
+body {
+
+    .wrapper {
+        display: flex;
+        height: 100vh;
+    }
+
+    .navbar-top {
+        .button-user {
+            .btn {
+                box-shadow: none;
+                background-color: transparent !important;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+
+    .tooltip-custom {
+        font-size: 12px;
+        background-color: rgba( #000000, 0.8);
+    }
+
+    .brand {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .max-32 {
+        max-width: 32px !important;
+        max-height: 32px !important;
+    }
+
+    .max-28 {
+        max-width: 28px !important;
+        max-height: 28px !important;
+    }
+
+    .max-24 {
+        max-width: 24px !important;
+        max-height: 24px !important;
+    }
+
+    .max-22 {
+        max-width: 22px !important;
+        max-height: 22px !important;
+    }
+
+    .max-18 {
+        max-width: 18px !important;
+        max-height: 18px !important;
+    }
+
+    .max-16 {
+        max-width: 16px !important;
+        max-height: 16px !important;
+    }
+
+    .max-14 {
+        max-width: 14px !important;
+        max-height: 14px !important;
+    }
+
+    .max-12 {
+        max-width: 12px !important;
+        max-height: 12px !important;
+    }
+
+    .bg-dimgray {
+        background-color: #525f7f !important;
+    }
+
+    .bg-black {
+        background-color: #424242 !important;
+    }
+
+    .box-message .dropdown-menu {
+        width: 30rem;
+        max-width: 320px;
+    }
+
+    .not-focusable:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    
+/**
+Vuetify tools theme
+**/
+    .headline {
+        font-size: 24px !important;
+        font-weight: 400;
+        line-height: 32px !important;
+        letter-spacing: normal !important;
+    }
+
+    .title {
+        font-size: 20px !important;
+        font-weight: 500;
+        line-height: 1 !important;
+        letter-spacing: 0.02em !important;
+    }
+
+    .subheading {
+        font-size: 16px !important;
+        font-weight: 400;
+    }
+
+    .body-2 {
+        font-size: 14px !important;
+        font-weight: 500;
+    }
+
+    .body-1 {
+        font-size: 14px !important;
+        font-weight: 400;
+    }
+
+    .caption {
+        font-size: 12px !important;
+        font-weight: 400;
+    }
+
+    .font-weight-thin {
+        font-weight: 100 !important;
+    }
+
+    .font-weight-light {
+        font-weight: 300 !important;
+    }
+
+    .font-weight-regular {
+        font-weight: 400 !important;
+    }
+
+    .font-weight-medium {
+        font-weight: 500 !important;
+    }
+
+    .font-weight-bold {
+        font-weight: 700 !important;
+    }
+
+    .font-weight-black {
+        font-weight: 900 !important;
+    }
+}

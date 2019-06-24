@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="wrapper" :class="classes">
+    <a-sidebar :minify="pinned" v-model="sideHide">
+    </a-sidebar>
+    <a-content did="ol">
+      <template v-slot:navbar>
+        <a-navbar color="primary" search-placeholder="Pesquisar..." no-alert no-message v-on:sidebar-pin="sideHide = !sideHide"></a-navbar>
+      </template>
+      <template>
+        <router-view/>
+      </template>
+    </a-content>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ASidebar from '@/components/ASidebar.js'
+import ABtn from '@/components/ABtn.js'
+import ANavbar from '@/components/ANavbar.js'
+import AContent from '@/components/AContent.js'
+import AIcon from '@/components/AIcon.js'
+import ACard from '@/components/cards/ACard.js'
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    ABtn,
+    ANavbar,
+    ASidebar,
+    AContent,
+    AIcon,
+    ACard
+  },
+  name: 'app',
+  computed: {
+    classes () {
+      return {
+        'side-hide': this.sideHide,
+        'side-unpinned': !this.sideHide
+      }
+    }
+  },
+  data () {
+    return {
+      pinned: false,
+      sideHide: false
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
