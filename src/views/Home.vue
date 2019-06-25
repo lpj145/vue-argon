@@ -48,14 +48,16 @@
               </div>
             </div>
           </div>
+          <div class="table-responsive">
             <vuetable
               ref="vuetable"
               :api-mode="false"
               :data="dataTableCard"
               :fields="['name', 'price', 'date', 'author']"
-              :css="{tableClass: 'table table-responsive table-striped table-hover', tableHeaderClass: 'thead-light'}"
+              :css="{tableClass: 'table table-striped table-hover', tableHeaderClass: 'thead-light'}"
             >
             </vuetable>
+          </div>
           
         </a-card>
       </div>
