@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "argon-design-system-free": "^1.0.1",
-    "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
+    "mobile-detect": "^1.4.3",
     "objectmodel": "^4.0.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
@@ -19,6 +19,7 @@
     "vue-feather-icons": "^4.21.0",
     "vue-router": "^3.0.3",
     "vue-select": "^3.1.0",
+    "vue2-hammer": "^2.1.2",
     "vuecode.js": "^0.0.27",
     "vuetable-2": "^1.7.5"
   },

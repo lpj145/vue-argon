@@ -30,7 +30,11 @@ export default {
     ANavlink
   },
   props: {
-    minify: Boolean
+    minify: Boolean,
+    to: {
+      type: String,
+      default: '/'
+    }
   },
   computed: {
     style () {
@@ -57,7 +61,7 @@ export default {
         <ASideheader minified={this.minify}>Components</ASideheader>
         <ANavlink minified={this.minify} icon="ImageIcon" href="#">Cards</ANavlink>
         <ANavlink minified={this.minify} icon="SquareIcon" href="#">Buttons</ANavlink>
-        <ANavlink minified={this.minify} icon="MenuIcon" href="#">Tables</ANavlink>
+        <ANavlink minified={this.minify} icon="MenuIcon" href="/tables">Tables</ANavlink>
       </nav>
     )
   }

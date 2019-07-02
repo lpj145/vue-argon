@@ -10,9 +10,7 @@ export default {
   functional: true,
   render (h, ctx) {
     const data = {
-      attrs: {
-        ...ctx.data.attrs
-      },
+      ...ctx.data,
       on: {
         ...ctx.listeners
       },

@@ -1,4 +1,5 @@
 import AIcon from './AIcon'
+import VueRouter from 'vue-router';
 
 function renderIcon (h, icon, ready, minified) {
   if (!ready) {
@@ -19,6 +20,14 @@ function renderLabel (h, label, ready) {
 
   return null
 }
+/**
+ * 
+ * @param {VueRouter} routeObject 
+ * @param {String} url 
+ */
+function goToRoute(routeObject, url) {
+
+}
 
 export default {
   name: 'a-navlink',
@@ -31,8 +40,12 @@ export default {
     icon: {
       default: false
     },
-    href: String,
-    to: String
+    href: {
+      type: String,
+      default: ''
+    },
+    to: [Object, String],
+    replace: Boolean
   },
   render (h, ctx) {
     const data = {

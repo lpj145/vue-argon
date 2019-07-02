@@ -2,7 +2,7 @@
   <div class="wrapper" :class="classes">
     <a-sidebar :minify="pinned" v-model="sideHide">
     </a-sidebar>
-    <a-content did="ol">
+    <a-content v-hammer:swipe="handlerTouch">
       <template v-slot:navbar>
         <a-navbar color="primary" search-placeholder="Pesquisar..." no-alert no-message v-on:sidebar-pin="sideHide = !sideHide"></a-navbar>
       </template>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import isMobile from './utils/detectmobile'
 import ASidebar from '@/components/ASidebar.js'
 import ABtn from '@/components/ABtn.js'
 import ANavbar from '@/components/ANavbar.js'
@@ -42,6 +43,19 @@ export default {
     return {
       pinned: false,
       sideHide: false
+    }
+  },
+  methods: {
+    handlerTouch(event) {
+      this.sideHide = event.direction === 2;
+    },
+    handleMobile () {
+      this.sideHide = true;
+    }
+  },
+  mounted() {
+    if (isMobile()) {
+      this.handleMobile()
     }
   }
 }
