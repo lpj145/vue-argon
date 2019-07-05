@@ -69,7 +69,14 @@
                 <h5 class="body-1 font-weight-bold mb-0">FORM CARD</h5>
               </div>
               <div class="col-auto text-right">
-                <a-btn :is-loading="btnLoading" @click="fieldValid = !fieldValid" v-tooltip="'Settings'" outline theme="primary">Apply</a-btn>
+                <ADropdown auto-close no-radius theme="success" text="Marcos Dantas">
+                  <a slot="content" class="dropdown-item" href="#">Action</a>
+                  <a slot="content" class="dropdown-item" href="#">Action</a>
+                  <a slot="content" class="dropdown-item" href="#">Action</a>
+                  <div slot="content" class="dropdown-divider"></div>
+                  <a slot="content" class="dropdown-item" href="#">Action</a>
+                </ADropdown>
+                
               </div>
             </div>
           </div>
@@ -138,10 +145,12 @@ import ASelect from '@/components/form/ASelect'
 import ATextarea from '@/components/form/ATextarea.js'
 import Vuetable from 'vuetable-2'
 import OptionsModel from '@/utils/model/selectoptions.js'
+import ADropdown from '@/components/ADropdown.js'
 
 export default {
   name: 'home',
   components: {
+    ADropdown,
     AInfoCard,
     AIcon,
     ACard,

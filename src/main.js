@@ -9,7 +9,6 @@ import './assets/custom.scss'
 import router from './router'
 
 Vue.use(VueHammer)
-
 Vue.use(Tooltip, {
   delay: 100,
   placement: 'bottom',

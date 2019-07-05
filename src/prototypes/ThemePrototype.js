@@ -10,6 +10,9 @@ export default {
 
     getBtnColor () {
       return `btn-${this.theme}`
+    },
+    hasTheme () {
+      return this.theme !== undefined
     }
   }
 }

@@ -36,7 +36,11 @@ body {
                 background-color: transparent !important;
                 color: #fff;
                 border: none;
+                font-weight: 500;
             }
+        }
+        .button-user.btn:focus {
+            outline: none;
         }
     }
 

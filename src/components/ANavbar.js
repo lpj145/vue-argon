@@ -1,5 +1,7 @@
 import AIcon from '@/components/AIcon.js'
 import ANavbarSearch from '@/components/ANavbarSearch.js'
+import { directive as onClickaway } from 'vue-clickaway'
+import ADropdown from './ADropdown'
 
 function renderMessages (h, messageArray, readyToRender) {
   if (readyToRender) {
@@ -60,9 +62,13 @@ function renderAlerts (h, alertsArray, readyToRender) {
 
 export default {
   name: 'a-navbar',
+  directives: {
+    away: onClickaway
+  },
   data () {
     return {
-      searchOpen: false
+      searchOpen: false,
+      userDropdownShow: false
     }
   },
   props: {
@@ -71,6 +77,7 @@ export default {
       type: String,
       default: 'gradient-primary'
     },
+    username: String,
     noAlert: Boolean,
     noMessage: Boolean,
     searchPlaceholder: String,
@@ -96,6 +103,9 @@ export default {
     },
     openSearchBar () {
       this.searchOpen = true
+    },
+    toggleUserDropdown () {
+      this.userDropdownShow = !this.userDropdownShow
     }
   },
   render (h) {
@@ -139,22 +149,21 @@ export default {
           </button>
           {renderMessages(h, this.dataMessages, !this.noMessage)}
           {renderAlerts(h, this.dataAlerts, !this.noAlert)}
-          <b-dropdown id="dropdown-1" right size="sm" text="Marcos Dantas" class="button-user mr-0 mt-0 mb-0 pb-0 pt-0">
-            <b-dropdown-header class="font-weight-normal text-primary">Welcome</b-dropdown-header>
-            <b-dropdown-item>
-              <AIcon icon="Edit3Icon" class="max-16"></AIcon>
-              Edit Profile
-            </b-dropdown-item>
-            <b-dropdown-item>
-              <AIcon icon="SettingsIcon" class="max-16"></AIcon>
-              Settings
-            </b-dropdown-item>
-            <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-item>
-              <AIcon icon="LogOutIcon" class="max-16"></AIcon>
-              Logout
-            </b-dropdown-item>
-          </b-dropdown>
+          <ADropdown
+            auto-close
+            as-top-navbar
+            no-radius
+            theme="success"
+            size="sm"
+            class="button-user"
+            splited
+            text="Marcos Dantas"
+          >
+            <a slot="content" class="dropdown-item" href="#"><AIcon icon="Edit3Icon" class="max-16"></AIcon> Edit Profile</a>
+            <a slot="content" class="dropdown-item" href="#"><AIcon icon="SettingsIcon" class="max-16"></AIcon> Settings</a>
+            <div slot="content" class="dropdown-divider"></div>
+            <a slot="content" class="dropdown-item" href="#"><AIcon icon="LogOutIcon" class="max-16"></AIcon> Action</a>
+          </ADropdown>
         </div>
         <ANavbarSearch {...dataSearch}></ANavbarSearch>
       </nav>

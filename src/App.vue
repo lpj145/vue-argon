@@ -4,7 +4,13 @@
     </a-sidebar>
     <a-content v-hammer:swipe="handlerTouch">
       <template v-slot:navbar>
-        <a-navbar color="primary" search-placeholder="Pesquisar..." no-alert no-message v-on:sidebar-pin="sideHide = !sideHide"></a-navbar>
+        <a-navbar 
+          username="Marcos Dantas"
+          color="primary"
+          search-placeholder="Pesquisar..."
+          no-alert no-message
+          v-on:sidebar-pin="sideHide = !sideHide"
+        ></a-navbar>
       </template>
       <template>
         <router-view/>
@@ -30,7 +36,7 @@ export default {
     AIcon,
     ACard
   },
-  name: 'app',
+  name: 'AApp',
   computed: {
     classes () {
       return {
