@@ -69,14 +69,13 @@
                 <h5 class="body-1 font-weight-bold mb-0">FORM CARD</h5>
               </div>
               <div class="col-auto text-right">
-                <ADropdown auto-close no-radius theme="success" text="Marcos Dantas">
+                <ADropdown size="sm" auto-close theme="success" text="Marcos Dantas">
                   <a slot="content" class="dropdown-item" href="#">Action</a>
                   <a slot="content" class="dropdown-item" href="#">Action</a>
                   <a slot="content" class="dropdown-item" href="#">Action</a>
                   <div slot="content" class="dropdown-divider"></div>
                   <a slot="content" class="dropdown-item" href="#">Action</a>
-                </ADropdown>
-                
+                </ADropdown>                
               </div>
             </div>
           </div>
@@ -88,7 +87,6 @@
                autofocus
                v-model="inputText"
                valid
-               
               >
               </a-input>
               <a-select v-model="selectValue" label="Tipo" placeholder="Select one options" :options="optionsField"></a-select>

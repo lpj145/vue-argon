@@ -1,14 +1,11 @@
 import { directive as onClickaway } from 'vue-clickaway'
 import ThemePrototype from '../prototypes/ThemePrototype'
-import uid from '@/utils/uids'
+import AIcon from './AIcon'
+
 import {
   offset,
   width
 } from '@/utils/dom'
-import {
-  setPosition,
-  parsePosition
-} from '@/utils/position-engine'
 
 const MARGIN_LEFT = 15
 
@@ -30,7 +27,10 @@ export default {
   },
   props: {
     splited: Boolean,
-    text: String,
+    text: {
+      type: String,
+      default: null
+    },
     noRadius: Boolean,
     maxWidth: {
       type: String,
@@ -55,7 +55,8 @@ export default {
     size: {
       type: String,
       default: ''
-    }
+    },
+    noPadding: Boolean
   },
   data () {
     return {
@@ -75,6 +76,8 @@ export default {
   },
   render (h) {
     const self = this
+    let buttonActivatorText = self.text
+    console.log(self.$slots)
 
     this.$nextTick(() => positionIfExplodeClientRect(
       self.$el.querySelector('.dropdown-menu'),
@@ -85,7 +88,7 @@ export default {
       ...self.data,
       class: {
         'btn-group': this.splited,
-        'dropdown-btn': true && this.splited
+        'dropdown': true && !this.splited
       },
       directives: []
     }
@@ -127,8 +130,13 @@ export default {
       class: {
         'dropdown-menu': true,
         'show': self.dropdownShow,
-        'rounded-0': self.noRadius
+        'rounded-0': self.noRadius,
+        'py-0': self.noPadding
       }
+    }
+
+    if (self.$slots.activator !== undefined) {
+      buttonActivatorText = self.$slots.activator
     }
 
     if (self.asTopNavbar) {
@@ -139,7 +147,7 @@ export default {
 
     return (
       <div { ...data }>
-        <button {...activatorDropdown}>{self.text}</button>
+        <button {...activatorDropdown}>{buttonActivatorText}</button>
         { self.splited
           ? <button {...splitedButton}>
             <span class="sr-only">Toggle dropdown</span>

@@ -1,5 +1,6 @@
 @import './external.scss';
 @import './vue-select';
+@import './spinners';
 @import './argon.scss';
 
 body, html {
@@ -27,6 +28,10 @@ body {
     .wrapper {
         display: flex;
         height: 100vh;
+    }
+
+    .btn:hover {
+        transform: none !important;
     }
 
     .navbar-top {

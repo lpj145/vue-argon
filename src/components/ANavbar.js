@@ -152,17 +152,71 @@ export default {
           <ADropdown
             auto-close
             as-top-navbar
-            no-radius
+            size="sm"
+            no-padding
+            class="d-inline box-message button-user"
+          >
+            <template slot="activator"><AIcon icon="MessageCircleIcon" class="max-22"></AIcon></template>
+            <template slot="content">
+              <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> messages.</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item caption py-2">Hello John Deree</li>
+                <li class="list-group-item caption py-2">Mercy from vanilla</li>
+                <li class="list-group-item caption py-2">Vue you are best</li>
+                <li class="list-group-item caption py-2">Angular: "You are best"</li>
+                <li class="list-group-item caption py-2">React: "try... try... ty"</li>
+              </ul>
+            </template>
+          </ADropdown>
+          <ADropdown
+            auto-close
+            as-top-navbar
+            no-padding
+            size="sm"
+            text="Alerta"
+            class="d-inline box-message button-user"
+          >
+            <template slot="activator"><AIcon icon="BellIcon" class="max-22"></AIcon></template>
+            <template slot="content">
+              <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <span class="badge badge-primary badge-pill">14</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <span class="badge badge-warning badge-pill">Update!</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge badge-primary badge-pill">1</span>
+                </li>
+              </ul>
+              <a href="#" class="list-group-item list-group-flush list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 subtitle">Caution with servers</h5>
+                </div>
+                <p class="mb-1 body-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small class="text-muted">By Administrator.</small>
+              </a>
+            </template>
+          </ADropdown>
+          <ADropdown
+            auto-close
+            as-top-navbar
             theme="success"
             size="sm"
             class="button-user"
             splited
             text="Marcos Dantas"
           >
-            <a slot="content" class="dropdown-item" href="#"><AIcon icon="Edit3Icon" class="max-16"></AIcon> Edit Profile</a>
-            <a slot="content" class="dropdown-item" href="#"><AIcon icon="SettingsIcon" class="max-16"></AIcon> Settings</a>
-            <div slot="content" class="dropdown-divider"></div>
-            <a slot="content" class="dropdown-item" href="#"><AIcon icon="LogOutIcon" class="max-16"></AIcon> Action</a>
+            <template slot="content">
+              <a class="dropdown-item" href="#"><AIcon icon="Edit3Icon" class="max-16"></AIcon> Edit Profile</a>
+              <a class="dropdown-item" href="#"><AIcon icon="SettingsIcon" class="max-16"></AIcon> Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><AIcon icon="LogOutIcon" class="max-16"></AIcon> Logout</a>
+            </template>
           </ADropdown>
         </div>
         <ANavbarSearch {...dataSearch}></ANavbarSearch>
