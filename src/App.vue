@@ -2,13 +2,13 @@
   <div class="wrapper" :class="classes">
     <a-sidebar :minify="pinned" v-model="sideHide">
     </a-sidebar>
-    <a-content v-hammer:swipe="handlerTouch">
+    <a-content>
       <template v-slot:navbar>
         <a-navbar
           username="Marcos Dantas"
           color="primary"
           search-placeholder="Pesquisar..."
-          no-alert no-message
+          
           v-on:sidebar-pin="sideHide = !sideHide"
         ></a-navbar>
       </template>
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     handlerTouch (event) {
-      this.sideHide = event.direction === 2
+      this.sideHide = !this.sideHide
     },
     handleMobile () {
       this.sideHide = true
