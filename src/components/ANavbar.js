@@ -6,25 +6,25 @@ import ADropdown from './ADropdown'
 function renderMessages (h, messageArray, readyToRender) {
   if (readyToRender) {
     return (
-      <b-dropdown id="dropdown-1" right size="sm" no-caret class="box-message button-user mr-0 mt-0 mb-0 pb-0 pt-0">
-        <template slot="button-content"><AIcon icon="MessageCircleIcon" class="max-22"></AIcon></template>
-        <div class="px-3 py-2">
-          <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-        </div>
-        <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-item>
-          <AIcon icon="Edit3Icon" class="max-16"></AIcon>
-          Edit Profile
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <AIcon icon="SettingsIcon" class="max-16"></AIcon>
-          Settings
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <AIcon icon="LogOutIcon" class="max-16"></AIcon>
-          Logout
-        </b-dropdown-item>
-      </b-dropdown>
+      <ADropdown
+        auto-close
+        as-top-navbar
+        size="sm"
+        no-padding
+        class="d-inline box-message button-user"
+      >
+        <template slot="activator"><AIcon icon="MessageCircleIcon" class="max-22"></AIcon></template>
+        <template slot="content">
+          <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> messages.</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item caption py-2">Hello John Deree</li>
+            <li class="list-group-item caption py-2">Mercy from vanilla</li>
+            <li class="list-group-item caption py-2">Vue you are best</li>
+            <li class="list-group-item caption py-2">Angular: "You are best"</li>
+            <li class="list-group-item caption py-2">React: "try... try... ty"</li>
+          </ul>
+        </template>
+      </ADropdown>
     )
   }
 
@@ -34,26 +34,40 @@ function renderMessages (h, messageArray, readyToRender) {
 function renderAlerts (h, alertsArray, readyToRender) {
   if (readyToRender) {
     return (
-      <b-dropdown id="dropdown-1" right size="sm" no-caret class="box-message button-user mr-0 mt-0 mb-0 pb-0 pt-0">
-        <template slot="button-content"><AIcon icon="BellIcon" class="max-22"></AIcon></template>
-        <div class="px-3 py-2">
-          <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-        </div>
-        <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-text>And this is more example text.</b-dropdown-text>
-        <b-dropdown-item>
-          <AIcon icon="Edit3Icon" class="max-16"></AIcon>
-          Edit Profile
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <AIcon icon="SettingsIcon" class="max-16"></AIcon>
-          Settings
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <AIcon icon="LogOutIcon" class="max-16"></AIcon>
-          Logout
-        </b-dropdown-item>
-      </b-dropdown>
+      <ADropdown
+        auto-close
+        as-top-navbar
+        no-padding
+        size="sm"
+        text="Alerta"
+        class="d-inline box-message button-user"
+      >
+        <template slot="activator"><AIcon icon="BellIcon" class="max-22"></AIcon></template>
+        <template slot="content">
+          <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio
+              <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Dapibus ac facilisis in
+              <span class="badge badge-warning badge-pill">Update!</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Morbi leo risus
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+          </ul>
+          <a href="#" class="list-group-item list-group-flush list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1 subtitle">Caution with servers</h5>
+            </div>
+            <p class="mb-1 body-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small class="text-muted">By Administrator.</small>
+          </a>
+        </template>
+      </ADropdown>
     )
   }
 
@@ -149,59 +163,6 @@ export default {
           </button>
           {renderMessages(h, this.dataMessages, !this.noMessage)}
           {renderAlerts(h, this.dataAlerts, !this.noAlert)}
-          <ADropdown
-            auto-close
-            as-top-navbar
-            size="sm"
-            no-padding
-            class="d-inline box-message button-user"
-          >
-            <template slot="activator"><AIcon icon="MessageCircleIcon" class="max-22"></AIcon></template>
-            <template slot="content">
-              <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> messages.</h6>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item caption py-2">Hello John Deree</li>
-                <li class="list-group-item caption py-2">Mercy from vanilla</li>
-                <li class="list-group-item caption py-2">Vue you are best</li>
-                <li class="list-group-item caption py-2">Angular: "You are best"</li>
-                <li class="list-group-item caption py-2">React: "try... try... ty"</li>
-              </ul>
-            </template>
-          </ADropdown>
-          <ADropdown
-            auto-close
-            as-top-navbar
-            no-padding
-            size="sm"
-            text="Alerta"
-            class="d-inline box-message button-user"
-          >
-            <template slot="activator"><AIcon icon="BellIcon" class="max-22"></AIcon></template>
-            <template slot="content">
-              <h6 class="dropdown-header text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Cras justo odio
-                  <span class="badge badge-primary badge-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Dapibus ac facilisis in
-                  <span class="badge badge-warning badge-pill">Update!</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Morbi leo risus
-                  <span class="badge badge-primary badge-pill">1</span>
-                </li>
-              </ul>
-              <a href="#" class="list-group-item list-group-flush list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1 subtitle">Caution with servers</h5>
-                </div>
-                <p class="mb-1 body-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small class="text-muted">By Administrator.</small>
-              </a>
-            </template>
-          </ADropdown>
           <ADropdown
             auto-close
             as-top-navbar

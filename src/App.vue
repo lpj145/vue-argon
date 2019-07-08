@@ -4,7 +4,7 @@
     </a-sidebar>
     <a-content v-hammer:swipe="handlerTouch">
       <template v-slot:navbar>
-        <a-navbar 
+        <a-navbar
           username="Marcos Dantas"
           color="primary"
           search-placeholder="Pesquisar..."
@@ -22,19 +22,13 @@
 <script>
 import isMobile from './utils/detectmobile'
 import ASidebar from '@/components/ASidebar.js'
-import ABtn from '@/components/ABtn.js'
 import ANavbar from '@/components/ANavbar.js'
 import AContent from '@/components/AContent.js'
-import AIcon from '@/components/AIcon.js'
-import ACard from '@/components/cards/ACard.js'
 export default {
   components: {
-    ABtn,
     ANavbar,
     ASidebar,
-    AContent,
-    AIcon,
-    ACard
+    AContent
   },
   name: 'AApp',
   computed: {
@@ -52,18 +46,17 @@ export default {
     }
   },
   methods: {
-    handlerTouch(event) {
-      this.sideHide = event.direction === 2;
+    handlerTouch (event) {
+      this.sideHide = event.direction === 2
     },
     handleMobile () {
-      this.sideHide = true;
+      this.sideHide = true
     }
   },
-  mounted() {
+  mounted () {
     if (isMobile()) {
       this.handleMobile()
     }
   }
 }
 </script>
-

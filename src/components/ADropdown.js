@@ -77,8 +77,6 @@ export default {
   render (h) {
     const self = this
     let buttonActivatorText = self.text
-    console.log(self.$slots)
-
     this.$nextTick(() => positionIfExplodeClientRect(
       self.$el.querySelector('.dropdown-menu'),
       self.$root.$el

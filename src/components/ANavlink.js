@@ -1,5 +1,4 @@
 import AIcon from './AIcon'
-import VueRouter from 'vue-router';
 
 function renderIcon (h, icon, ready, minified) {
   if (!ready) {
@@ -20,18 +19,9 @@ function renderLabel (h, label, ready) {
 
   return null
 }
-/**
- * 
- * @param {VueRouter} routeObject 
- * @param {String} url 
- */
-function goToRoute(routeObject, url) {
-
-}
 
 export default {
   name: 'a-navlink',
-  functional: true,
   components: {
     AIcon
   },
@@ -40,29 +30,34 @@ export default {
     icon: {
       default: false
     },
-    href: {
-      type: String,
-      default: ''
-    },
     to: [Object, String],
     replace: Boolean
   },
-  render (h, ctx) {
+  methods: {
+    __click () {
+      console.log(this.to)
+      console.log(this.replace)
+      this.$router[this.replace === true ? 'replace' : 'push'](this.to)
+    }
+  },
+  render (h) {
+    const self = this
     const data = {
-      attrs: {
-        href: ctx.props.href
-      },
+      ...self.data,
       class: {
         'nav-link': true,
-        'pl-4': !ctx.props.minified,
+        'pl-4': !self.minified,
         'mt-3': true,
-        'text-center': ctx.props.minified
+        'text-center': self.minified
+      },
+      on: {
+        click: self.__click
       }
     }
     return (
       <a {...data}>
-        {renderIcon(h, ctx.props.icon, ctx.props.icon, ctx.props.minified)}
-        {renderLabel(h, ctx.slots().default, ctx.props.minified)}
+        {renderIcon(h, self.icon, self.icon, self.minified)}
+        {renderLabel(h, self.$slots.default, self.minified)}
       </a>
     )
   }

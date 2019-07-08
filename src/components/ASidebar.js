@@ -30,11 +30,7 @@ export default {
     ANavlink
   },
   props: {
-    minify: Boolean,
-    to: {
-      type: String,
-      default: '/'
-    }
+    minify: Boolean
   },
   computed: {
     style () {
@@ -55,11 +51,11 @@ export default {
     return (
       <nav class="nav flex-column fixed-top" {...{ style: this.style } }>
         {renderBrand(h, this.$slots.brand, this.minify)}
-        <ANavlink minified={this.minify} icon="HomeIcon" href="#">Dashboard</ANavlink>
-        <ANavlink minified={this.minify} icon="SmileIcon" href="#">Icons</ANavlink>
-        <ANavlink minified={this.minify} icon="MapIcon" href="#">Maps</ANavlink>
+        <ANavlink to="/" minified={this.minify} icon="HomeIcon" href="#">Dashboard</ANavlink>
+        <ANavlink to="/about" minified={this.minify} icon="SmileIcon" href="#">Icons</ANavlink>
+        <ANavlink to="/tables" minified={this.minify} icon="MapIcon" href="#">Maps</ANavlink>
         <ASideheader minified={this.minify}>Components</ASideheader>
-        <ANavlink minified={this.minify} icon="ImageIcon" href="#">Cards</ANavlink>
+        <ANavlink to="/cards" minified={this.minify} icon="ImageIcon" href="#">Cards</ANavlink>
         <ANavlink minified={this.minify} icon="SquareIcon" href="#">Buttons</ANavlink>
         <ANavlink minified={this.minify} icon="MenuIcon" href="/tables">Tables</ANavlink>
       </nav>

@@ -8,8 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'dashboard',
+      component: () => import('./views/Dashboard.vue')
+    },
+    {
+      path: '/cards',
+      name: 'cards',
+      component: () => import('./views/Home.vue')
     },
     {
       path: '/about',

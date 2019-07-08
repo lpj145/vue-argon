@@ -58,7 +58,6 @@
             >
             </vuetable>
           </div>
-          
         </a-card>
       </div>
       <div class="col-md-6 col-sm-12">
@@ -75,7 +74,7 @@
                   <a slot="content" class="dropdown-item" href="#">Action</a>
                   <div slot="content" class="dropdown-divider"></div>
                   <a slot="content" class="dropdown-item" href="#">Action</a>
-                </ADropdown>                
+                </ADropdown>
               </div>
             </div>
           </div>
@@ -135,14 +134,12 @@
 import AInfoCard from '@/components/cards/AInfocard.js'
 import AIcon from '@/components/AIcon.js'
 import ACard from '@/components/cards/ACard.js'
-import ATable from '@/components/table/ATable.js'
 import ABtn from '@/components/ABtn.js'
 import dataTableCard from '@/data/tableCard'
 import AInput from '@/components/form/AInput'
 import ASelect from '@/components/form/ASelect'
 import ATextarea from '@/components/form/ATextarea.js'
 import Vuetable from 'vuetable-2'
-import OptionsModel from '@/utils/model/selectoptions.js'
 import ADropdown from '@/components/ADropdown.js'
 
 export default {
@@ -152,7 +149,6 @@ export default {
     AInfoCard,
     AIcon,
     ACard,
-    ATable,
     ABtn,
     AInput,
     ASelect,
@@ -167,7 +163,7 @@ export default {
       textArea: '',
       btnLoading: false,
       selectValue: '',
-      optionsField: [{label: 'Marcos', value: 0, disabled: true}, {label: 'Shyrliane', value: 20, selected: true}]
+      optionsField: [{ label: 'Marcos', value: 0, disabled: true }, { label: 'Shyrliane', value: 20, selected: true }]
     }
   },
   methods: {

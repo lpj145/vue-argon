@@ -4,20 +4,20 @@ export default {
   props: {
     shadow: {
       default: false
-    }
+    },
+    dark: Boolean
   },
   render (h, ctx) {
+    const shadowClass = ctx.props.shadow === '' ? 'shadow' : ctx.props.shadow !== false ? ` shadow-${ctx.props.shadow}` : ''
     const data = {
       ...ctx.data,
       props: {
         ...ctx.props
+      },
+      class: {
+        [shadowClass]: true,
+        'bg-default': ctx.props.dark
       }
-    }
-
-    const shadowClass = ctx.props.shadow === '' ? 'shadow' : ctx.props.shadow !== false ? ` shadow-${ctx.props.shadow}` : ''
-    data.class = {
-      ...data.class,
-      [shadowClass]: true
     }
     return (
       <div class="card" {...data}>
