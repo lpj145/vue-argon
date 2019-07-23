@@ -1,6 +1,9 @@
 import ANavlink from '@/components/ANavlink.js'
 import ASideheader from '@/components/ASideheader.js'
 import bindmodel from '@/mixins/bindmodel.js'
+import Hammer from 'hammerjs'
+
+const MAX_WIDTH = 240
 
 function renderBrand (h, brandSlot, minified) {
   if (minified) {
@@ -23,6 +26,32 @@ function renderBrand (h, brandSlot, minified) {
   )
 }
 
+function configureEvents (el, context) {
+  const stopPropagate = function (ev) {
+    ev.stopPropagation()
+  }
+  const closeSideMenu = function (ev, sideElement, isTouch = false) {
+    event.stopPropagation()
+    event.preventDefault()
+    if (!isTouch) {
+      context.__emitValue(true)
+      return
+    }
+
+    sideElement.style.transform = `translateX(100%)`
+  }
+  const divSideElement = el.firstElementChild
+
+  divSideElement
+    .addEventListener('touchstart', stopPropagate)
+  divSideElement
+    .addEventListener('touchmove', stopPropagate)
+  divSideElement
+    .addEventListener('mousedown', stopPropagate)
+
+  el.addEventListener('mousedown', (e) => closeSideMenu(e, el))
+}
+
 export default {
   name: 'a-sidebar',
   mixins: [bindmodel],
@@ -30,34 +59,41 @@ export default {
     ANavlink
   },
   props: {
-    minify: Boolean
-  },
-  computed: {
-    style () {
-      return {
-        'display': !this.value ? 'block' : 'none',
-        width: this.minify ? '70px' : '220px',
-        'min-width': this.minify ? '70px' : '220px',
-        'max-width': this.minify ? '70px' : '220px',
-        backgroundColor: '#fff',
-        'box-shadow': '0 0 2rem 0 rgba(136,152,170,.15)!important',
-        'z-index': 999999,
-        'flex': '1 1 auto',
-        'height': 'inherit'
-      }
-    }
+    minify: Boolean,
+    isMobile: Boolean
   },
   render (h) {
+    this.$nextTick(() => {
+      configureEvents(this.$el, this)
+    })
+    const navData = {
+      attrs: {
+        id: 'sidebar-navigation'
+      },
+      class: {
+        'nav': true,
+        'flex-column': true,
+        'mobile-nav': this.isMobile,
+        'desktop-nav': !this.isMobile,
+        'nav-minify': this.minify
+      },
+      style: {
+        'display': !this.value ? 'block' : 'none'
+      }
+    }
+
     return (
-      <nav class="nav flex-column fixed-top" {...{ style: this.style } }>
-        {renderBrand(h, this.$slots.brand, this.minify)}
-        <ANavlink to="/" minified={this.minify} icon="HomeIcon" href="#">Dashboard</ANavlink>
-        <ANavlink to="/about" minified={this.minify} icon="SmileIcon" href="#">Icons</ANavlink>
-        <ANavlink to="/tables" minified={this.minify} icon="MapIcon" href="#">Maps</ANavlink>
-        <ASideheader minified={this.minify}>Components</ASideheader>
-        <ANavlink to="/cards" minified={this.minify} icon="ImageIcon" href="#">Cards</ANavlink>
-        <ANavlink minified={this.minify} icon="SquareIcon" href="#">Buttons</ANavlink>
-        <ANavlink minified={this.minify} icon="MenuIcon" href="/tables">Tables</ANavlink>
+      <nav {...navData }>
+        <div>
+          {renderBrand(h, this.$slots.brand, this.minify)}
+          <ANavlink to="/" minified={this.minify} icon="HomeIcon" href="#">Dashboard</ANavlink>
+          <ANavlink to="/about" minified={this.minify} icon="SmileIcon" href="#">Icons</ANavlink>
+          <ANavlink to="/tables" minified={this.minify} icon="MapIcon" href="#">Maps</ANavlink>
+          <ASideheader minified={this.minify}>Components</ASideheader>
+          <ANavlink to="/cards" minified={this.minify} icon="ImageIcon" href="#">Cards</ANavlink>
+          <ANavlink to="/buttons" minified={this.minify} icon="SquareIcon" href="#">Buttons</ANavlink>
+          <ANavlink minified={this.minify} icon="MenuIcon" href="/tables">Tables</ANavlink>
+        </div>
       </nav>
     )
   }

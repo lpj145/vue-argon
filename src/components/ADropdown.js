@@ -7,7 +7,7 @@ import {
   width
 } from '@/utils/dom'
 
-const MARGIN_LEFT = 15
+const MARGIN_LEFT = 40
 
 function positionIfExplodeClientRect (el, elClient) {
   const clientWidth = width(elClient)

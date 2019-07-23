@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Home",
+    "path": "/",
+    "componente": "./views/home"
+  },
+  {
+    "name": "Cards",
+    "path": "/cards",
+    "componente": "./views/home"
+  }
+]

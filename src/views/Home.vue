@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-4">
     <div class="row mb-3">
       <div class="col-12 col-xs-12 d-flex">
         <AIcon icon="GridIcon"></AIcon><h3 class="ml-2 title font-weight-light text-muted">Info Cards - <small class="text-muted">Styled card to facilitate your life.</small></h3>

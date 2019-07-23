@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="py-4">
     <div class="row">
       <div class="col-lg-8 col-xs-12">
         <a-card dark class="mb-4">
@@ -30,14 +30,14 @@ export default {
                 <h5 class="caption text-uppercase text-light font-weight-medium mb-0">Statistcs</h5>
                 <h2 class="title font-weight-bold mb-0 text-white">Social Performance</h2>
               </div>
-              <div class="col-auto text-right sr-only">
+              <div class="col-auto text-right">
                 <a-btn class="text-success" theme="transparent">Month</a-btn>
                 <a-btn theme="transparent">Week</a-btn>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <a-line-chart :height="200"></a-line-chart>
+            <a-line-chart :height="180"></a-line-chart>
           </div>
         </a-card>
       </div>

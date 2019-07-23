@@ -130,7 +130,7 @@ export default {
         'background-color': this.simple ? 'transparent !important' : null
       },
       class: {
-        'navbar-top d-flex position-relative  navbar mb-4': true,
+        'navbar-top d-flex position-relative  navbar': true,
         'w-100': true,
         [`bg-${this.color}`]: !this.simple
       }

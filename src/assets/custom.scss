@@ -16,14 +16,58 @@ body, html {
 }
 
 .side-unpinned {
-    padding-left: 220px;
+    // padding-left: 220px;
 }
 
 .side-pinned {
     padding-left: 70px;
 }
 
+.side-pinned.side-mobile,
+.side-unpinned.side-mobile {
+    padding-left: 0 !important;
+}
+
+
 body {
+
+    .mobile-nav,
+    .desktop-nav {
+        box-shadow: 0 0 2rem 0 rgba(136,152,170,.15) !important;
+        background-color: '#ffffff';
+        z-index: 99999999;
+        flex: 1 1 auto;
+        height: inherit;
+        max-width: 240px;
+        width: 240px;
+    }
+
+    .nav-minify {
+        max-width: 70px !important;
+    }
+
+    .mobile-nav {
+        max-width: 100% !important;
+        width: 100% !important;
+        position: fixed;
+        background-color: rgba(0,0,0,0.3) !important;
+        height: 90hv;
+        box-shadow: 0 0 2rem 0 rgba(136,152,170,.15);
+    }
+
+    .desktop-nav>div,
+    .mobile-nav>div {
+        background-color: #ffffff;
+        height: inherit;
+        overflow-y:auto;
+        transition-property: transform, width, -webkit-transform;
+        transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-nav>div {
+        max-width: 250px;
+        margin-bottom: 1.5em;
+    }
 
     .wrapper {
         display: flex;
